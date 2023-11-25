@@ -91,7 +91,7 @@ password.addEventListener("invalid", function () {
     errorPassword.classList.remove("block");
   }, 8000);
 });
-password.addEventListener("input", function () {
+password.addEventListener("input", function (inp) {
   // password.addEventListener("keypress", function () {
   //   labelPassword.classList.remove(
   //     "-translate-x-10",
