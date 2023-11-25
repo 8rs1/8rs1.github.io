@@ -69,7 +69,22 @@ username.addEventListener("input", function (inp) {
   //     }
   //   });
   // });
-  console.log(inp);
+  let usernameTarget = inp.target;
+  if (usernameTarget.value) {
+    labelUsername.classList.remove(
+      "-translate-x-10",
+      "sm:-translate-x-12",
+      "translate-y-10"
+    );
+  } else {
+    if (!username.value) {
+      labelUsername.classList.add(
+        "-translate-x-10",
+        "sm:-translate-x-12",
+        "translate-y-10"
+      );
+    }
+  }
 });
 username.addEventListener("focusout", function () {
   if (!username.value) {
