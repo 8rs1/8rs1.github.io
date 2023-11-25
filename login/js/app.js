@@ -52,32 +52,24 @@ newForm.addEventListener("click", function () {
   haveFormContainer.classList.add("opacity-0");
   haveFormContainer.classList.add("invisible");
 });
-username.addEventListener("focus", function () {
-  username.addEventListener("keypress", function () {
-    labelUsername.classList.remove(
-      "-translate-x-10",
-      "sm:-translate-x-12",
-      "translate-y-10"
-    );
-    username.addEventListener("keyup", function () {
-      if (!username.value) {
-        labelUsername.classList.add(
-          "-translate-x-10",
-          "sm:-translate-x-12",
-          "translate-y-10"
-        );
-      }
-    });
-    username.addEventListener("keydown", function () {
-      if (!username.value) {
-        labelUsername.classList.add(
-          "-translate-x-10",
-          "sm:-translate-x-12",
-          "translate-y-10"
-        );
-      }
-    });
-  });
+username.addEventListener("input", function (inp) {
+  // username.addEventListener("", function () {
+  //   labelUsername.classList.remove(
+  //     "-translate-x-10",
+  //     "sm:-translate-x-12",
+  //     "translate-y-10"
+  //   );
+  //   username.addEventListener("keyup", function () {
+  //     if (!username.value) {
+  //       labelUsername.classList.add(
+  //         "-translate-x-10",
+  //         "sm:-translate-x-12",
+  //         "translate-y-10"
+  //       );
+  //     }
+  //   });
+  // });
+  console.log(inp);
 });
 username.addEventListener("focusout", function () {
   if (!username.value) {
