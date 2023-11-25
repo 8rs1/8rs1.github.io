@@ -92,31 +92,6 @@ password.addEventListener("invalid", function () {
   }, 8000);
 });
 password.addEventListener("input", function (inp) {
-  // password.addEventListener("keypress", function () {
-  //   labelPassword.classList.remove(
-  //     "-translate-x-10",
-  //     "sm:-translate-x-12",
-  //     "translate-y-10"
-  //   );
-  //   password.addEventListener("keyup", function () {
-  //     if (!password.value) {
-  //       labelPassword.classList.add(
-  //         "-translate-x-10",
-  //         "sm:-translate-x-12",
-  //         "translate-y-10"
-  //       );
-  //     }
-  //   });
-  //   password.addEventListener("keydown", function () {
-  //     if (!password.value) {
-  //       labelPassword.classList.add(
-  //         "-translate-x-10",
-  //         "sm:-translate-x-12",
-  //         "translate-y-10"
-  //       );
-  //     }
-  //   });
-  // });
   let passwordTarget = inp.target;
   if (passwordTarget.value) {
     labelPassword.classList.remove(
@@ -125,15 +100,6 @@ password.addEventListener("input", function (inp) {
       "translate-y-10"
     );
   } else {
-      labelPassword.classList.add(
-        "-translate-x-10",
-        "sm:-translate-x-12",
-        "translate-y-10"
-      );
-  }
-});
-password.addEventListener("focusout", function () {
-  if (!password.value) {
     labelPassword.classList.add(
       "-translate-x-10",
       "sm:-translate-x-12",
