@@ -3,107 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ورود به سایت | سکرت گیم</title>
+  <!-- <meta http-equiv="refresh" content="3"> -->
+  <title>Secret game | سکرت گیم</title>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="fontIcons/css/all.css">
 </head>
-<body class="iransans flex justify-center items-center h-screen bg-violet-200">
-  <div class="container">
-    <div class="w-[95%] sm:w-[85%] mx-auto relative border border-solid border-violet-950/20 rounded-lg overflow-hidden shadow-xl">
-      <div class="w-60 h-60 absolute -top-16 -left-10 block bg-violet-600 -z-[2000] rounded-full"></div>
-      <div class="w-60 h-60 absolute -bottom-24 -right-10 block bg-violet-700 -z-[2000] rounded-full"></div>
-      <div class="backdrop-blur-md bg-violet-400/10  py-4 grid grid-cols-2">
-        <!-- <div class="absolute top-0 right-0 left-0 py-2 text-center bg-red-500 rounded-b-lg hidden" id="errorMsg">لطفا فیلد ها را پر کنید!</div> -->
-        <div class="col-span-2 md:col-span-1 px-1 sm:px-8 md:px-1 flex flex-col justify-around">
-          <h1 class="text-3xl font-bold text-center mt-4">ورود به حساب</h1>
-          <form action="javascript:void(0)" class="my-9 flex flex-col gap-5 lg:gap-8 mx-auto w-[98%]" id="formLogin">
-            <div>
-              <label for="username" class="py-2 inline-block transition-all duration-200 translate-y-10 -translate-x-10 sm:-translate-x-12"
-                id="usernameLabel">نام کاربری</label>
-              <div class="bg-white/70 rounded-lg flex items-center h-10 relative">
-                <label class="w-8 h-8 sm:w-10 sm:h-10 p-1" for="username">
-                  <div class="flex w-full h-full items-center justify-center">
-                    <i class="far fa-user block text-2xl sm:text-3xl"></i>
-                  </div>
-                </label>
-                <input type="text" id="username"
-                  class="bg-transparent w-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] h-full px-2 border border-solid invalid:border-red-500 valid:border-green-500 rounded-l-lg outline-none peer/pass" title="طول نام کاربری باید حداقل 5 رقم و حداکثر از 18رقم تشکیل شده باشد." pattern="\w{5,18}" required>
+<body class="iransans selection:bg-teal-700 selection:text-emerald-100 ">
+  <header class="bg-emerald-100 py-3">
+    <section class="container">
+      <article id="navbarcontainer">
+        <nav class="flex justify-between items-center">
+          <div class="cursor-pointer flex justify-center items-center sm:hidden mr-2 w-8 h-8 z-[101]" id="menubar">
+            <i class="far fa-bars text-3xl" id="menubaricon"></i>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-y-10 gap-x-7 bg-emerald-200 sm:bg-transparent pt-16 px-2 sm:p-0 sm:items-center fixed -right-[100vw] transition-all duration-200 bottom-0 top-0 sm:static z-[100] h-screen sm:h-[initial]" id="menu">
+            <a href="../login/index.html" class="bg-emerald-300 sm:bg-emerald-200 before:bg-emerald-100 sm:before:bg-emerald-50 before:h-full before:w-0 before:absolute before:right-0 before:top-0 overflow-hidden hover:before:w-full before:transition-all before:duration-200 relative transition-all duration-150 ease-linear w-[140px] h-10 rounded-lg ">
+              <span class="absolute flex gap-1 items-center inset-0 justify-center bg-transparent">
+                <i class="far fa-user text-xl"></i>
+                ورود / ثبت نام
+              </span>
+            </a>
+            <ul class="flex gap-x-6 flex-col gap-y-10 sm:flex-row">
+              <li class="inline"><a href="javascript:void(0)">خانه</a></li>
+              <li class="inline"><a href="javascript:void(0)">مقالات</a></li>
+              <li class="inline"><a href="javascript:void(0)">درباره ما</a></li>
+              <li class="inline"><a href="javascript:void(0)">آموزش ها</a></li>
+            </ul>
+          </div>
+          <div>
+            <a href="javascript:void(0)">
+              <div class="logofont text-3xl tracking-wide">
+                <h3>Secret <span class="text-rose-600">Game</span></h3>
               </div>
-              <label for="username">
-                <div class="py-1 text-red-600 rounded-b-lg hidden text-xs" id="errorUsername">
-                  طول نام کاربری باید حداقل 5 رقم و حداکثر از 18رقم تشکیل شده باشد.
-                </div>
-              </label>
+            </a>
+          </div>
+        </nav>
+      </article>
+      <article class="headercontainer">
+        <div class="lg:col-span-1 md:block hidden">
+          <img src="images/header/usergamer.svg" alt="Robatic" class="h-full w-full">
+        </div>
+        <div class="col-span-3 md:col-span-1 flex items-center justify-center text-4xl font-semibold text-center">
+          <h1 class="leading-[4rem]">
+            <span class="font-extrabold headertextlava bg-clip-text text-black/30">دنیــای اسـرار آمیـز گـیم</span> رو بـا سکـرت <span class="text-rose-600">گیـم</span> تجربـه کـن!
+          </h1>
+        </div>
+      </article>
+    </section>
+  </header>
+  <main class="pb-12">
+    <section class="relative">
+      <article class="absolute -top-7 right-0 left-0">
+        <div class="flex justify-between bg-emerald-100 h-16 after:block after:h-16 after:bg-emerald-50 after:rounded-full after:absolute relative after:top-1/2 after:right-0 after:left-0 -z-[19999] after:-z-[199999]">
+        </div>
+      </article>
+    </section>
+    <section class="container">
+      <article class="my-5">
+        
+      </article>
+    </section>
+  </main>
+  <footer class="bg-emerald-100 relative rounded-t-[2rem]">
+    <section class="container">
+      <article>
+        <div class="w-20 h-20 z-[1000] rounded-full bg-emeratext-emerald-50 fixed overflow-hidden bottom-6 right-2 sm:right-6 p-2 shadow-[0_0_.3rem_#2e5388] transition-all duration-200 bg-emerald-50" title="ارتباط با پشتیبانی" id="support" style="cursor: pointer; z-index: 999999999999999;">
+          <div class="w-full h-full relative bg-emerald-50">
+            <div class="w-full h-full flex justify-center items-center">
+              <i class="far fa-message-question text-[3.2rem] text-emerald-900 p-1"></i>
             </div>
-            <div>
-              <label for="password" class="py-2 inline-block translate-y-10 -translate-x-10 sm:-translate-x-12 transition-all duration-200" id="passwordLabel">پسورد</label>
-              <div class="bg-white/70 rounded-lg flex items-center h-10 relative">
-                <label class="h-8 w-8 sm:h-10 sm:w-10 p-1" for="password">
-                  <div class="flex w-full h-full justify-center items-center">
-                    <i class="far fa-lock text-2xl sm:text-3xl"></i>
-                  </div>
-                </label>
-                <input type="password" id="password"
-                class="bg-transparent pr-2 pl-8 sm:pl-10 w-[calc(100%-2rem)] sm:w-[calc(100%-2.5rem)] h-full border border-solid invalid:border-red-500 valid:border-green-500 rounded-l-lg outline-none"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="طول رمز عبور باید حداقل 8 رقم باشد و حداقل از یک حرف بزرگ و یک حرف کوچک و اعداد تشکیل شده باشد." required>
-                  <div class="h-9 w-9 sm:h-10 sm:w-10 absolute left-0 p-1">
-                    <div
-                      class="w-full h-full cursor-pointer flex justify-center items-center relative" id="showPassword">
-                      <i class="far fa-eye text-2xl sm:text-3xl"></i>
-                      <div class="h-1 w-0 bg-white flex items-end rotate-45 absolute inset-0 m-auto transition-all ease-in-out rounded-xl" id="showPasswordLine">
-                        <div class="h-0.5 w-full bg-black rounded-2xl"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <label for="password">
-                  <div class="py-1 text-red-600 rounded-b-lg hidden text-xs" id="errorPass">
-                    طول رمز عبور باید حداقل 8 رقم باشد و حداقل از یک حرف بزرگ و یک حرف کوچک و اعداد تشکیل شده باشد.
-                  </div>
-                </label>
-              </div>
-            <input type="submit" value="ورود" class="cursor-pointer text-white py-2 text-center w-full bg-green-600/90 hover:bg-green-700/90 active:bg-green-800/90 rounded-lg" id="formSubmit">
-          </form>
-          <div class="mx-auto w-[98%] my-4 flex flex-col gap-3">
-            <div>
-              <a href="javascript:void(0)" class="text-green-300 hover:text-green-400 active:text-green-500">فراموشی رمز عبور</a>
-            </div>
-            <div>
-              <a href="javascript:void(0)" class="text-green-300 hover:text-green-400 active:text-green-500">ثبت نام در سایت</a>
+            <div class="w-full h-full top-0 right-0 bg-inherit rotate-180 absolute invisible opacity-0 transition-all duration-200 ease-linear bg-emerald-50" id="supportClose">
+              <i class="far fa-close text-[4rem] text-emerald-900 before:flex before:justify-center w-full"></i>
             </div>
           </div>
         </div>
-        <div class="hidden md:block">
-          <img src="images/login.svg" alt="login" class="h-full">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="flex invisible opacity-0 overflow-hidden top-0 left-0 w-screen h-screen absolute bg-gray-400/60 backdrop-blur-md transition-all duration-200 items-center justify-center" id="haveForm">
-    <div class="container">
-      <div class="text-3xl text-center">
-        <div>
-          شما یک فرم ورود ناتمام دارید
-        </div>
-      </div>
-      <div class="grid sm:grid-cols-2 sm:grid-rows-1 grid-cols-1 grid-rows-2 max-w-md mt-3 mx-auto gap-x-3 gap-y-2">
-        <div>
-          <label for="username">
-            <div class="text-center py-2 cursor-pointer text-sm text-white bg-green-500 rounded-lg" id="newForm">
-              فرم ورود جدید
+        <div class="fixed bottom-[6.7rem] right-2 sm:bottom-6 sm:right-[6.6rem] rounded-xl z-[9999999999] rounded-br-none w-52 sm:w-64 h-96 bg-emeratext-emerald-400 invisible transition-all duration-200 opacity-0 overflow-hidden" id="supportdialog">
+          <div class="h-5/6 overflow-y-auto bg-emerald-500 relative">
+            <div class="py-2 px-2 sm:px-3 h-fit sticky top-0 right-0 left-0 text-center bg-emerald-900 text-emerald-50">
+              <div class="flex items-center gap-1 sm:gap-2">
+                <div><img src="images/support/person1.jpg" alt="پشتیبانی" class="w-10 rounded-full aspect-square"></div>
+                <div>پشتیبانی سکرت گیم</div>
+              </div>
             </div>
-          </label>
-        </div>
-        <div>
-          <label for="username">
-            <div class="text-center py-2 bg-red-500 rounded-lg cursor-pointer text-sm text-white" id="continueForm">
-              ادامه فرم ورود قبلی
+            <div class="flex flex-col justify-items-end py-1.5 px-0.5 gap-1 text-sm" id="chatsection">
+              <div class="w-full flex justify-end">
+                <div class="bg-emerald-900 text-emerald-50 text-ellipsis overflow-hidden rounded-xl rounded-bl-none w-fit max-w-full py-1 px-2">
+                  سلام، چطور میتونم کمکتون کنم؟
+                  <div class="text-xs text-emerald-100" id="supportmsgtime"></div>
+                </div>
+              </div>
             </div>
-          </label>
+          </div>
+          <div class="h-1/6 flex gap-x-2 items-center bg-emerald-900 text-emerald-50">
+            <input type="text" class="w-full h-full pr-2 outline-none bg-emerald-900 text-emerald-50" placeholder="چیزی بنویسید..." id="newmessage">
+            <a href="#nmsg">
+              <i class="far fa-send rotate-180 text-2xl pr-2 py-4 text-emerald-50 cursor-pointer" id="sendmessage"></i>
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </article>
+      <article class="h-[23rem] flex flex-col justify-between">
+        <div class="flex justify-center items-center gap-x-10 h-16">
+          <div class="after:block after:absolute after:-bottom-1 sm:after:-bottom-[2px] relative after:h-0.5 after:w-0 hover:after:w-full after:bg-slate-900 after:transition-all after:duration-150 after:ease-linear flex justify-center cursor-pointer" id="contactUs">
+            ارتباط با ما
+          </div>
+          <div class="after:block after:absolute after:-bottom-1 sm:after:-bottom-[2px] relative after:h-0.5 after:w-0 hover:after:w-full after:bg-slate-900 after:transition-all after:duration-150 after:ease-linear flex justify-center cursor-pointer" id="aboutUs">
+            درباره ما
+          </div>
+        </div>
+        <!--
+          Need To Change
+        -->
+        <div class="h-96 sm:h-80 overflow-x-hidden text-sm sm:text-base relative">
+          <div class="flex flex-col gap-5 sm:gap-10 justify-center h-full py-5 absolute top-0 left-0 right-[100vw] w-full transition-all duration-300 ease-in-out" id="abouttext">
+            <div class="text-3xl sm:text-4xl text-center">تیم طراحی سایت سکرت گیم</div>
+            <div class="text-center">تیم طراحی سایت سکرت گیم در آبان ماه 1402 تشکیل شده است، این تیم فعلا دو عضو دارد.</div>
+          </div>
+          <div class="flex flex-col justify-between h-full p-5" style="position: absolute; top: 0; left: 0; right: -100vw; width: 100%; transition: all 300ms ease-in-out;" id="contacttxt">
+            <div>مکان: <address>ایران، مشهد، طلاب، میدان عسکریه، مدرسه شهید نواب اصفهانی.</address></div>
+            <div>شماره تماس: <a href="tel:09932155452">09932155452</a>، <a href="tel:09038792279">09038792279</a></div>
+            <div class="flex justify-between items-center">
+              ما را در فضای مجازی دنبال کنید:
+              <div class="flex justify-center items-center gap-2 sm:gap-7 flex-wrap">
+                <div class="insta">
+                  <a href="javascript:void(0)">
+                    <i class="fab fa-instagram text-2xl sm:text-[2rem]"></i>
+                  </a>
+                </div>
+                <div class="telegram">
+                  <a href="javascript:void(0)">
+                    <i class="fab fa-telegram text-2xl sm:text-[2rem]"></i>
+                  </a>
+                </div>
+                <div class="linkedin">
+                  <a href="javascript:void(0)">
+                    <i class="fab fa-linkedin text-2xl sm:text-[2rem]"></i>
+                  </a>
+                </div>
+                <div class="twitter">
+                  <a href="javascript:void(0)">
+                    <i class="fab fa-x-twitter text-2xl sm:text-[2rem]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between" dir="ltr">
+          <span class="text-xs sm:text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; 2023 <a href="javascript:void(0)"
+              class="hover:underline">Secret Game™</a>. All Rights Reserved.
+          </span>
+          <ul class="flex flex-wrap items-center mt-3 text-xs sm:text-sm gap-x-4 md:gap-x-6 font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+            <li>
+              <a href="javascript:void(0)" class="hover:underline">About</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="hover:underline">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="hover:underline">Licensing</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="hover:underline">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </footer>
   <script src="js/app.js"></script>
 </body>
 </html>
