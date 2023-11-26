@@ -1,154 +1,109 @@
-let $ = document;
-
-let datetime = new Date();
-
-let menuBar = $.getElementById("menubar");
-let menuBarIcon = $.getElementById("menubaricon");
-let menu = $.getElementById("menu");
-let menuFlag = false;
-
-let contactus = $.getElementById("contactUs");
-let footerText = $.getElementsByName("footertoggle");
-let aboutus = $.getElementById("aboutUs");
-let aboutText = $.getElementById("abouttext");
-let contactText = $.getElementById("contacttxt");
-let footerFlag = false;
-
-let supportButton = $.getElementById("support");
-let supportClose = $.getElementById("supportClose");
-let supportDialog = $.getElementById("supportdialog");
-let supportFlag = false;
-let chatSection = $.getElementById("chatsection");
-let msgSupportTime = $.getElementById("supportmsgtime");
-let newMessage = $.getElementById("newmessage");
-let sendMessage = $.getElementById("sendmessage");
-
-$.body.addEventListener("keyup", function (isESC) {
-  if (isESC.code === "Escape") {
-    if (supportClose.classList.contains("visible")) {
-      supportButton.click();
-    }
-  }
+// variables start
+let $ = document; // for access to document easer
+// username variables start
+let labelUsername = $.getElementById("usernameLabel");
+let username = $.getElementById("username");
+let isHaveForm = Boolean(username.value);
+let haveFormContainer = $.getElementById("haveForm");
+let continueForm = $.getElementById("continueForm");
+let newForm = $.getElementById("newForm");
+let errorUsername = $.getElementById("errorUsername");
+// username variables end
+// password variables start
+let labelPassword = $.getElementById("passwordLabel");
+let showPassword = $.getElementById("showPassword");
+let showPasswordLine = $.getElementById("showPasswordLine");
+let password = $.getElementById("password");
+let errorPassword = $.getElementById("errorPass");
+let showPassFlag = false; // show password?
+// password variables end
+// variables end
+// username codes start
+username.addEventListener("invalid", function () {
+  errorUsername.classList.add("block");
+  errorUsername.classList.remove("hidden");
+  setTimeout(function () {
+    errorUsername.classList.add("hidden");
+    errorPassword.classList.remove("block");
+  }, 8000);
 });
-
-menuBar.addEventListener("click", function () {
-  if (menuFlag) {
-    menu.classList.add("-right-[100vw]");
-    menu.classList.remove("right-0");
-    menuBarIcon.classList.add("fa-bars");
-    menuBarIcon.classList.remove("fa-close");
-    menuFlag = false;
-  } else {
-    menu.classList.add("right-0");
-    menu.classList.remove("-right-[100vw]");
-    menuBarIcon.classList.add("fa-close");
-    menuBarIcon.classList.remove("fa-bars");
-    menuFlag = true;
-  }
-});
-
-supportButton.addEventListener("click", function () {
-  if (supportFlag) {
-    supportClose.classList.remove("opacity-1");
-    supportClose.classList.remove("visible");
-    supportClose.classList.add("opacity-0");
-    supportClose.classList.add("rotate-180");
-    supportClose.classList.add("invisible");
-    supportDialog.classList.add("invisible");
-    supportDialog.classList.remove("visible");
-    supportDialog.classList.add("opacity-0");
-    supportDialog.classList.remove("opacity-1");
-    supportButton.classList.remove("rounded-tr-none");
-    supportButton.classList.remove("sm:rounded-bl-none");
-    supportButton.classList.add("sm:rounded-tr-full");
-    supportFlag = false;
-  } else {
-    supportClose.classList.add("opacity-1");
-    supportClose.classList.add("visible");
-    supportClose.classList.remove("opacity-0");
-    supportClose.classList.remove("rotate-180");
-    supportClose.classList.remove("invisible");
-    supportDialog.classList.add("visible");
-    supportDialog.classList.remove("invisible");
-    supportDialog.classList.add("opacity-1");
-    supportDialog.classList.remove("opacity-0");
-    supportButton.classList.add("rounded-tr-none");
-    supportButton.classList.add("sm:rounded-bl-none");
-    supportButton.classList.add("sm:rounded-tr-full");
-    supportFlag = true;
-  }
-  supportButton.classList.add("rounded-full");
-});
-
-
-contactText.style.right = 0;
-contactus.classList.add("after:w-full");
-aboutus.classList.remove("after:w-full");
-aboutText.style.right = "100vw";
-footerFlag = true;
-
-contactus.addEventListener("click", function () {
-  footerFlag = false;
-  if (!footerFlag) {
-    contactText.style.right = 0;
-    contactus.classList.add("after:w-full");
-    aboutus.classList.remove("after:w-full");
-    aboutText.style.right = "100vw";
-    footerFlag = true;
-  }
-});
-aboutus.addEventListener("click", function () {
-  footerFlag = true;
-  if (footerFlag) {
-    aboutText.style.right = 0;
-    contactText.style.right = "-100vw";
-    aboutus.classList.add("after:w-full");
-    contactus.classList.remove("after:w-full");
-    footerFlag = false;
-  }
-});
-
-sendMessage.addEventListener("click", sendMSG);
-newMessage.addEventListener("keyup", sendkey);
-
-function sendMSG(enter) {
-  newMessage = $.getElementById("newmessage");
-  if (newMessage.value.trim().length) {
-    let msg = $.createElement("div");
-    let msgChild = $.createElement("div");
-    let nowTime = new Date();
-    let msgTime = $.createElement("div");
-    msg.className = "w-full";
-    msg.id = "nmsg";
-    setTimeout(() => {
-      msg.removeAttribute("id");
-      newMessage.focus();
-    }, 1);
-    msgChild.className =
-      "bg-emerald-900 text-emerald-50 text-ellipsis overflow-hidden rounded-xl rounded-br-none w-fit max-w-full py-1 px-2";
-    //   "bg-[#F1FAEE]",
-    //   "text-ellipsis",
-    //   "overflow-hidden",
-    //   "rounded-lg",
-    //   "rounded-br-none",
-    //   "w-fit",
-    //   "max-w-full",
-    //   "py-1",
-    //   "px-2"
-    msgTime.classList.add("text-xs", "text-emerald-100");
-    msgChild.innerHTML = newMessage.value;
-    msgTime.innerHTML = nowTime.getHours() + ":" + nowTime.getMinutes();
-    msg.append(msgChild);
-    chatSection.append(msg);
-    msgChild.append(msgTime);
-    newMessage.value = "";
-  }
+if (isHaveForm) {
+  // check username value when page loaded
+  labelUsername.classList.remove(
+    "-translate-x-10",
+    "sm:-translate-x-12",
+    "translate-y-10"
+  );
+  haveFormContainer.classList.add("visible");
+  haveFormContainer.classList.add("opacity-1");
+  haveFormContainer.classList.remove("invisible");
+  haveFormContainer.classList.remove("opacity-0");
 }
-function sendkey(keyup) {
-  if (keyup.code === "Enter") {
-    sendMessage.click();
+continueForm.addEventListener("click", function () {
+  haveFormContainer.classList.remove("visible");
+  haveFormContainer.classList.remove("opacity-1");
+  haveFormContainer.classList.add("opacity-0");
+  haveFormContainer.classList.add("invisible");
+});
+newForm.addEventListener("click", function () {
+  username.value = "";
+  haveFormContainer.classList.remove("visible");
+  haveFormContainer.classList.remove("opacity-1");
+  haveFormContainer.classList.add("opacity-0");
+  haveFormContainer.classList.add("invisible");
+});
+username.addEventListener("input", function (inp) {
+  let usernameTarget = inp.target;
+  if (usernameTarget.value) {
+    labelUsername.classList.remove(
+      "-translate-x-10",
+      "sm:-translate-x-12",
+      "translate-y-10"
+    );
+  } else {
+    labelUsername.classList.add(
+      "-translate-x-10",
+      "sm:-translate-x-12",
+      "translate-y-10"
+    );
   }
-}
-newMessage.value = "";
-msgSupportTime.innerHTML =
-  new Date().getHours() + ":" + new Date().getMinutes();
+});
+// username codes end
+// password codes start
+showPassword.addEventListener("click", function () {
+  if (showPassFlag) {
+    showPasswordLine.classList.add("w-0");
+    showPasswordLine.classList.remove("w-full");
+    password.setAttribute("type", "password");
+    showPassFlag = false;
+  } else {
+    showPasswordLine.classList.add("w-full");
+    showPasswordLine.classList.remove("w-0");
+    password.setAttribute("type", "text");
+    showPassFlag = true;
+  }
+});
+password.addEventListener("invalid", function () {
+  errorPassword.classList.add("block");
+  errorPassword.classList.remove("hidden");
+  setTimeout(function () {
+    errorPassword.classList.add("hidden");
+    errorPassword.classList.remove("block");
+  }, 8000);
+});
+password.addEventListener("input", function (inp) {
+  let passwordTarget = inp.target;
+  if (passwordTarget.value) {
+    labelPassword.classList.remove(
+      "-translate-x-10",
+      "sm:-translate-x-12",
+      "translate-y-10"
+    );
+  } else {
+    labelPassword.classList.add(
+      "-translate-x-10",
+      "sm:-translate-x-12",
+      "translate-y-10"
+    );
+  }
+});
